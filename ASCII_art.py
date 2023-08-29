@@ -60,9 +60,16 @@ def generate_ascii_video(video_path):
         pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
         ascii_frame = convert_to_ascii(pil_frame, new_width=412)
         ascii_frames.append(ascii_frame)
-        play_ascii_animation(ascii_frames)
-        
+        play_ascii_animation(ascii_frames) 
     cap.release()
 
 
-generate_ascii_video("giz.mp4")
+print("1: Image to Ascii \n2: Video to Ascii")
+choice = input("Enter your choice: ")
+path = input("\nEnter the file: ")
+if choice == '1':
+    convert_img_to_ascii(path)
+elif choice == '2': 
+    generate_ascii_video(path)
+else: 
+    print("Bad choice!")
